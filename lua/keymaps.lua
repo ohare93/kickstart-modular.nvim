@@ -51,4 +51,142 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Navigation
+
+vim.keymap.set('n', '<leader>b', ':e#<cr>', { desc = 'Swap to last open buffer' })
+
+-- Text Manipulation
+
+vim.keymap.set('n', 'x', '"_x', { desc = 'Cut without adding to any registry' })
+vim.keymap.set('v', 'x', '"_x', { desc = 'Cut without adding to any registry' })
+
+vim.keymap.set('n', 'X', '"_d', { desc = 'Delete without adding to any registry' })
+vim.keymap.set('v', 'X', '"_d', { desc = 'Delete without adding to any registry' })
+
+vim.keymap.set('n', 'XX', '"_dd', { desc = 'Delete whole line without adding to any registry' })
+
+vim.keymap.set('n', 'c', '"xc', { desc = 'Change without adding to any registry' })
+
+-- Meta
+
+vim.keymap.set('n', '<leader>vv', ':source $MYVIMRC<cr>', { desc = 'Reload vimrc' })
+
+-- nmap <leader>a ggVG"+y
+--
+-- " have x (removes single character) not go into the default registry
+-- nnoremap x "_x
+-- " Make X an operator that removes without placing text in the default registry
+-- nmap X "_d
+-- nmap XX "_dd
+-- vmap X "_d
+-- vmap x "_d
+--
+-- " don't yank to default register when changing something
+-- nnoremap c "xc
+-- xnoremap c "xc
+
+-- nnoremap Q :q<CR>
+-- " Open the vimrc file anytime
+-- nnoremap <LEADER>rc :e $HOME/.config/nvim/init.vim<CR>
+-- nnoremap <LEADER>rv :e .nvimrc<CR>
+-- nnoremap <LEADER>sv :source $MYVIMRC<CR>
+--
+-- augroup NVIMRC
+--     autocmd!
+--     autocmd BufWritePost *.nvimrc exec ":so %"
+-- augroup END
+-- " Copy to system clipboard
+-- vnoremap Y "+y
+-- " Search
+-- noremap <LEADER><CR> :nohlsearch<CR>
+-- " Adjacent duplicate words
+-- noremap <LEADER>dw /\(\<\w\+\>\)\_s*\1
+-- " Space to Tab
+-- nnoremap <LEADER>tt :%s/    /\t/g
+-- vnoremap <LEADER>tt :s/    /\t/g
+--
+-- nnoremap <LEADER>gm :cprev<CR>zvzz
+-- nnoremap <LEADER>gk :cnext<CR>zvzz
+--
+-- nnoremap n nzz
+-- nnoremap N Nzz
+--
+--
+-- " Switch to alternate file
+-- noremap <LEADER>w <C-^>
+--
+-- " noremap <silent> <up> k
+-- " noremap <silent> <left> h
+-- " noremap <silent> <down> j
+-- " noremap <silent> <right> l
+--
+--
+-- " ==================== Insert Mode Cursor Movement ====================
+-- inoremap <C-a> <ESC>A
+--
+--
+-- " ==================== Command Mode Cursor Movement ====================
+-- cnoremap <C-a> <Home>
+-- cnoremap <C-e> <End>
+-- cnoremap <C-p> <Up>
+-- cnoremap <C-n> <Down>
+-- cnoremap <C-b> <Left>
+-- cnoremap <C-f> <Right>
+-- cnoremap <M-b> <S-Left>
+-- cnoremap <M-w> <S-Right>
+--
+--
+-- " ==================== Window management ====================
+-- " Use <space> + new arrow keys for moving the cursor around windows
+-- noremap <LEADER>w <C-w>w
+-- noremap <LEADER>k <C-w>k
+-- noremap <LEADER>j <C-w>j
+-- noremap <LEADER>h <C-w>h
+-- noremap <LEADER>l <C-w>l
+-- noremap qf <C-w>o
+-- " Disable the default s key
+-- noremap s <nop>
+-- " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
+-- noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
+-- noremap sj :set splitbelow<CR>:split<CR>
+-- noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
+-- noremap sl :set splitright<CR>:vsplit<CR>
+-- " Resize splits with arrow keys
+-- " noremap <C-up> :res +5<CR>
+-- " noremap <C-down> :res -5<CR>
+-- " noremap <C-left> :vertical resize-5<CR>
+-- " noremap <C-right> :vertical resize+5<CR>
+-- " Place the two screens up and down
+-- noremap sh <C-w>t<C-w>K
+-- " Place the two screens side by side
+-- noremap sv <C-w>t<C-w>H
+-- " Rotate screens
+-- noremap srh <C-w>b<C-w>K
+-- noremap srv <C-w>b<C-w>H
+-- " Press <SPACE> + q to close the window below the current window
+-- noremap <LEADER>q <C-w>j:q<CR>
+--
+--
+-- " ==================== Tab management ====================
+-- " Create a new tab with tu
+-- noremap tk :tabe<CR>
+-- noremap tK :tab split<CR>
+-- " Move around tabs with tn and ti
+-- noremap th :-tabnext<CR>
+-- noremap tl :+tabnext<CR>
+-- " Move the tabs with tmn and tmi
+-- nnoremap Q :q<CR>
+-- noremap tml :+tabmove<CR>
+--
+--
+--
+-- " TODOS:
+-- "
+-- " 1. Ctrl G is lazy git. Remap and test
+-- " 2. CTRLP plugin is for C#? Find out why
+-- " 3.Ctrl F is Rg? What do
+-- " 4. Tab for >>?
+-- "
+--
+
 -- vim: ts=2 sts=2 sw=2 et
