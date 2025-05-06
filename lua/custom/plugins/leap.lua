@@ -15,7 +15,7 @@ return {
   },
 
   config = function(_, opts)
-    require('leap.user').set_repeat_keys('<enter>', '<backspace>')
+    -- require('leap.user').set_repeat_keys('<enter>', '<backspace>')
   end,
 
   -- Optional dependencies
