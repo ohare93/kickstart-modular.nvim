@@ -36,6 +36,16 @@ return {
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        markdown = { 'prettier' },
+        elm = { 'elm-format' },
+        html = { 'prettier' },
+        css = { 'prettier' },
+        scss = { 'prettier' },
+        json = { 'prettier' },
+        yaml = { 'prettier' },
+        csharp = { 'csharpier' },
+        python = { 'black' },
+        typescript = { 'prettier' },
       },
     },
   },

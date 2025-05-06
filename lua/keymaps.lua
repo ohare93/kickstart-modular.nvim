@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Navigation
 
-vim.keymap.set('n', '<leader>b', ':e#<cr>', { desc = 'Swap to last open buffer' })
+vim.keymap.set('n', '<leader>k', ':e#<cr>', { desc = 'Swap to last open buffer' })
 
 -- Text Manipulation
 
@@ -65,7 +65,7 @@ vim.keymap.set('v', 'X', '"_d', { desc = 'Delete without adding to any registry'
 
 vim.keymap.set('n', 'XX', '"_dd', { desc = 'Delete whole line without adding to any registry' })
 
-vim.keymap.set('n', 'c', '"xc', { desc = 'Change without adding to any registry' })
+vim.keymap.set('n', 'c', '"cc', { desc = 'Change without adding to any registry' })
 
 -- Meta
 
@@ -73,17 +73,6 @@ vim.keymap.set('n', '<leader>vv', ':source $MYVIMRC<cr>', { desc = 'Reload vimrc
 
 -- nmap <leader>a ggVG"+y
 --
--- " have x (removes single character) not go into the default registry
--- nnoremap x "_x
--- " Make X an operator that removes without placing text in the default registry
--- nmap X "_d
--- nmap XX "_dd
--- vmap X "_d
--- vmap x "_d
---
--- " don't yank to default register when changing something
--- nnoremap c "xc
--- xnoremap c "xc
 
 -- nnoremap Q :q<CR>
 -- " Open the vimrc file anytime
@@ -115,10 +104,6 @@ vim.keymap.set('n', '<leader>vv', ':source $MYVIMRC<cr>', { desc = 'Reload vimrc
 -- " Switch to alternate file
 -- noremap <LEADER>w <C-^>
 --
--- " noremap <silent> <up> k
--- " noremap <silent> <left> h
--- " noremap <silent> <down> j
--- " noremap <silent> <right> l
 --
 --
 -- " ==================== Insert Mode Cursor Movement ====================
