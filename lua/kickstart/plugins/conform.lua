@@ -38,7 +38,7 @@ return {
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
         markdown = { 'prettier' },
         elm = { 'elm-format' },
-        html = { 'prettier' },
+        html = { 'prettier', 'superhtml' },
         css = { 'prettier' },
         scss = { 'prettier' },
         json = { 'prettier' },
