@@ -65,6 +65,7 @@ return {
         pickers = {
           find_files = {
             -- `hidden = true` will show hidden files in the file finder
+            -- hidden = true,
           },
           live_grep = {
             -- `additional_args` is a function that returns a table of arguments

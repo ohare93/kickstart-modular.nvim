@@ -46,6 +46,7 @@ return {
         csharp = { 'csharpier' },
         python = { 'black' },
         typescript = { 'prettier' },
+        kotlin = { 'ktlint' },
       },
     },
   },
