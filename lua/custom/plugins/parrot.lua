@@ -28,6 +28,11 @@ vim.keymap.set('n', '<leader>an', '<cmd>PrtModel<cr>', { desc = '[A]I [N]ew Mode
 vim.keymap.set('n', '<leader>ap', '<cmd>PrtProvider<cr>', { desc = '[A]I [P]rovider Selection' })
 vim.keymap.set('n', '<leader>aq', '<cmd>PrtAsk<cr>', { desc = '[A]I [Q]uestion' })
 
+vim.keymap.set('n', '<leader>ap', 'ggVG<cmd>PrtChatPaste<cr>', { desc = '[A]I [P]aste File into chat' })
+vim.keymap.set('v', '<leader>ap', ":<C-u>'<,'>PrtChatPaste<cr>", { desc = '[A]I [P]aste Selection into chat' })
+
+vim.keymap.set('n', '<leader>ar', '<cmd>PrtChatResponde<cr>', { desc = '[A]I Chat [R]espond' })
+
 -- parrot.nvim configuration for Neovim plugin manager.
 -- Defines the plugin, dependencies, and provider API keys for various AI text generation backends.
 -- Uncomment and set your API keys in the respective provider sections to enable them.
