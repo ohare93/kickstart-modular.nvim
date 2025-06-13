@@ -40,38 +40,25 @@ vim.keymap.set('n', '<leader>ar', '<cmd>PrtChatResponde<cr>', { desc = '[A]I Cha
 -- Other supported providers include Anthropic, Gemini, Groq, Mistral, Ollama, OpenAI, Github, Nvidia, Xai, etc.
 return {
   'frankroeder/parrot.nvim',
+  tag = 'v1.8.0',
   dependencies = { 'ibhagwan/fzf-lua', 'nvim-lua/plenary.nvim' },
   opts = {
     providers = {
-      -- anthropic = {
-      --   api_key = os.getenv "ANTHROPIC_API_KEY",
-      -- },
-      -- gemini = {
-      --   api_key = os.getenv "GEMINI_API_KEY",
-      -- },
-      -- groq = {
-      --   api_key = os.getenv "GROQ_API_KEY",
-      -- },
-      -- mistral = {
-      --   api_key = os.getenv "MISTRAL_API_KEY",
-      -- },
       pplx = {
+        name = 'Perplexity',
         api_key = vim.env.PERPLEXITY_API_KEY,
+        endpoint = 'https://api.perplexity.ai/chat/completions',
+        topic = {
+          model = 'sonar-pro',
+        },
+        models = {
+          'sonar',
+          'sonar-pro',
+          'sonar-reasoning',
+          'sonar-reasoning-pro',
+          'sonar-deep-research',
+        },
       },
-      -- provide an empty list to make provider available (no API key required)
-      -- ollama = {},
-      -- openai = {
-      --   api_key = os.getenv "OPENAI_API_KEY",
-      -- },
-      -- github = {
-      --   api_key = vim.env.GITHUB_TOKEN,
-      -- },
-      -- nvidia = {
-      --   api_key = os.getenv "NVIDIA_API_KEY",
-      -- },
-      -- xai = {
-      --   api_key = os.getenv "XAI_API_KEY",
-      -- },
     },
     hooks = {
       Complete = function(prt, params)
