@@ -89,12 +89,12 @@ return {
         },
         -- (Optional) Example: set log level for debugging
         log_level = 1,
-        mappings = {
-          next = '<leader>tn',
-          prev = '<leader>tp',
-          run = '<leader>tr',
-          stop = '<leader>tx',
-        },
+        -- mappings = {
+        --   next = '<leader>tn',
+        --   prev = '<leader>tp',
+        --   run = '<leader>tr',
+        --   stop = '<leader>tx',
+        -- },
       }
     end,
   },

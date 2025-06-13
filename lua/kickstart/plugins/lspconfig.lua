@@ -284,5 +284,18 @@ return {
       }
     end,
   },
+  {
+    'Decodetalkers/csharpls-extended-lsp.nvim',
+    dependencies = {
+      'neovim/nvim-lspconfig',
+    },
+    ft = 'cs',
+    config = function()
+      require('lspconfig').csharp_ls.setup {
+        -- Your csharp-ls configuration here
+      }
+      require('csharpls_extended').buf_read_cmd_bind()
+    end,
+  },
 }
 -- vim: ts=2 sts=2 sw=2 et
