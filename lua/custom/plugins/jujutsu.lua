@@ -1,0 +1,5 @@
+return {
+  {
+    'rafikdraoui/jj-diffconflicts',
+  },
+}
