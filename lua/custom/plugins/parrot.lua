@@ -60,6 +60,8 @@ return {
         },
       },
     },
+    chat_dir = "~/Development/ai/parrot/chats",
+    state_dir = "~/Development/ai/parrot/state",
     hooks = {
       Complete = function(prt, params)
         local template = [[
