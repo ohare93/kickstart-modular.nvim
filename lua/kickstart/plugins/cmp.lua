@@ -36,6 +36,14 @@ return {
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'onsails/lspkind.nvim',
+      -- Copilot integration
+      {
+        'zbirenbaum/copilot-cmp',
+        dependencies = { 'zbirenbaum/copilot.lua' },
+        config = function()
+          require('copilot_cmp').setup()
+        end,
+      },
     },
     config = function()
       -- See `:help cmp`

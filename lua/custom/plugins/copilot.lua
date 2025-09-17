@@ -1,6 +1,10 @@
 return {
+  -- GitHub Copilot with cmp integration (DISABLED)
   -- {
   --   'zbirenbaum/copilot-cmp',
+  --   dependencies = {
+  --     'zbirenbaum/copilot.lua',
+  --   },
   --   config = function()
   --     require('copilot_cmp').setup()
   --   end,
@@ -9,23 +13,50 @@ return {
   --   'zbirenbaum/copilot.lua',
   --   cmd = 'Copilot',
   --   build = ':Copilot auth',
-  --   event = 'BufReadPost',
+  --   event = 'InsertEnter',
+  --   config = function()
+  --     require('copilot').setup {
+  --       suggestion = {
+  --         enabled = false, -- Disable inline suggestions since we're using cmp
+  --       },
+  --       panel = {
+  --         enabled = false, -- Disable the panel since we're using cmp
+  --       },
+  --       filetypes = {
+  --         ['*'] = true,
+  --         TelescopePrompt = false,
+  --         markdown = true,
+  --         help = true,
+  --       },
+  --     }
+  --   end,
+  -- },
+  
+  -- Copilot Chat (optional, requires separate access)
+  -- {
+  --   'CopilotC-Nvim/CopilotChat.nvim',
+  --   branch = 'canary',
+  --   dependencies = {
+  --     { 'zbirenbaum/copilot.lua' },
+  --     { 'nvim-lua/plenary.nvim' },
+  --   },
   --   opts = {
-  --     suggestion = {
-  --       enabled = false,
-  --       -- auto_trigger = true,
-  --       -- hide_during_completion = vim.g.ai_cmp,
-  --       -- keymap = {
-  --       --   accept = false, -- handled by nvim-cmp / blink.cmp
-  --       --   next = '<M-]>',
-  --       --   prev = '<M-[>',
-  --       -- },
+  --     debug = false,
+  --     window = {
+  --       layout = 'float',
+  --       relative = 'editor',
+  --       width = 0.8,
+  --       height = 0.8,
   --     },
-  --     panel = { enabled = false },
-  --     -- filetypes = {
-  --     --   markdown = true,
-  --     --   help = true,
-  --     -- },
+  --   },
+  --   keys = {
+  --     { '<leader>cc', '<cmd>CopilotChatToggle<cr>', desc = '[C]opilot [C]hat Toggle' },
+  --     { '<leader>ce', '<cmd>CopilotChatExplain<cr>', mode = { 'n', 'v' }, desc = '[C]opilot [E]xplain' },
+  --     { '<leader>ct', '<cmd>CopilotChatTests<cr>', mode = { 'n', 'v' }, desc = '[C]opilot Generate [T]ests' },
+  --     { '<leader>cf', '<cmd>CopilotChatFix<cr>', mode = { 'n', 'v' }, desc = '[C]opilot [F]ix' },
+  --     { '<leader>co', '<cmd>CopilotChatOptimize<cr>', mode = { 'n', 'v' }, desc = '[C]opilot [O]ptimize' },
+  --     { '<leader>cd', '<cmd>CopilotChatDocs<cr>', mode = { 'n', 'v' }, desc = '[C]opilot Generate [D]ocs' },
+  --     { '<leader>cr', '<cmd>CopilotChatReview<cr>', mode = { 'n', 'v' }, desc = '[C]opilot [R]eview' },
   --   },
   -- },
 }
