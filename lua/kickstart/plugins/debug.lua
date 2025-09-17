@@ -144,6 +144,29 @@ return {
         cwd = function()
           return vim.fn.input('Workspace folder: ', vim.fn.getcwd() .. '/', 'file')
         end,
+        -- Prevent $metadata$ path issues by mapping to /dev/null equivalent
+        sourceFileMap = {
+          ['C:\\$metadata$'] = '',
+          ['/\\$metadata\\$'] = '',
+        },
+        -- Enable stepping into NuGet package source code
+        justMyCode = true,  -- Temporarily disable to avoid $metadata$ issues
+        suppressJITOptimizations = true,
+        enableStepFiltering = true,  -- Enable to avoid problematic step-into
+        requireExactSource = true,
+        -- Symbol and source options for NuGet packages - DISABLED to prevent $metadata$ issues
+        symbolOptions = {
+          searchMicrosoftSymbolServer = false,
+          searchNuGetOrgSymbolServer = false,
+          searchPaths = {},
+          moduleFilter = {
+            mode = 'loadAllButExcluded',
+            excludedModules = {},
+          },
+        },
+        sourceLinkOptions = {
+          ['*'] = { enabled = false },
+        },
       },
     }
   end,
