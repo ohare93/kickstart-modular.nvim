@@ -17,7 +17,23 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      require('mini.indentscope').setup()
+      -- Better indentation scope visualization
+      require('mini.indentscope').setup {
+        symbol = '│',
+        options = { try_as_border = true },
+      }
+
+      -- Highlight patterns in buffer
+      require('mini.hipatterns').setup()
+
+      -- Icons
+      require('mini.icons').setup()
+
+      -- Better buffer deletion
+      require('mini.bufremove').setup()
+
+      -- Better increment/decrement
+      require('mini.splitjoin').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
