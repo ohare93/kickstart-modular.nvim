@@ -68,6 +68,39 @@ require('lazy').setup({
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
   -- you can continue same window with `<space>sr` which resumes last telescope search
 }, {
+  -- Performance and reproducibility settings
+  defaults = {
+    lazy = false, -- Don't lazy-load by default for more predictable behavior
+  },
+
+  -- Enable lockfile for reproducible plugin versions
+  -- The lockfile will be created at the root of your config directory
+  performance = {
+    cache = {
+      enabled = true,
+    },
+    reset_packpath = true,
+    rtp = {
+      reset = true,
+    },
+  },
+
+  -- Configure lockfile location (in your config directory, not data directory)
+  -- Using the repo root for the lockfile so it's version controlled
+  lockfile = vim.fn.fnamemodify(debug.getinfo(1).source:sub(2), ':h:h') .. '/lazy-lock.json',
+
+  -- Don't auto-update lockfile - require explicit :Lazy update
+  -- This ensures reproducibility - plugins won't change unless you explicitly update
+  install = {
+    missing = true,
+    colorscheme = { 'tokyonight' },
+  },
+
+  checker = {
+    enabled = false, -- Don't automatically check for plugin updates
+    notify = false,
+  },
+
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table

@@ -15,13 +15,14 @@ return {
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
+    commit = '583a1d555c8e407868ce00c57e37eca4b7ff960e', -- Pinned for reproducibility
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { 'williamboman/mason.nvim', opts = {} },
-      'williamboman/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      { 'williamboman/mason.nvim', commit = '8024d64e1330b86044fed4c8494ef3dcd483a67c', opts = {} },
+      { 'williamboman/mason-lspconfig.nvim', commit = 'bef29b653ba71d442816bf56286c2a686210be04' },
+      { 'WhoIsSethDaniel/mason-tool-installer.nvim', commit = '93a9ff9b34c91c0cb0f7de8d5f7e4abce51d8903' },
 
       -- Useful status updates for LSP.
       { 'j-hui/fidget.nvim', opts = {} },

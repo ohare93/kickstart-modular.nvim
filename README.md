@@ -121,6 +121,65 @@ examples of adding popularly requested plugins.
 
 [The Only Video You Need to Get Started with Neovim](https://youtu.be/m8C0Cq9Uv9o)
 
+## Reproducible Configuration
+
+This configuration implements reproducible plugin management, similar to NixOS flakes:
+
+### 🔒 Plugin Version Locking
+
+All plugin versions are pinned using two complementary approaches:
+
+1. **`lazy-lock.json`** - Automatically tracks exact commit hashes of all installed plugins
+2. **Explicit commit pins** - Critical plugins (LSP, Treesitter, Telescope, etc.) have hardcoded commits in their config files
+
+### 📦 Benefits
+
+- **Deterministic builds**: Same config = same plugins = same behavior
+- **Safe updates**: Review changes before committing
+- **Easy rollback**: Git history tracks all plugin version changes
+- **Team collaboration**: Everyone on the same plugin versions
+
+### 🔄 Updating Plugins
+
+Use the provided update script (similar to `nix flake update`):
+
+```bash
+./update-plugins.sh
+```
+
+This script will:
+1. Backup your current lockfile
+2. Update all plugins via lazy.nvim
+3. Regenerate the lockfile with new commit hashes
+4. Show a diff of changes
+5. Prompt for confirmation before applying
+
+**Manual update:**
+```bash
+# In neovim
+:Lazy sync
+
+# Then regenerate lockfile
+nvim --headless -c "luafile generate-lockfile.lua" -c "qa"
+```
+
+### 📝 Adding New Plugins
+
+When adding a new plugin:
+
+1. Add the plugin spec to a file in `lua/kickstart/plugins/` or `lua/custom/plugins/`
+2. Run `:Lazy sync` in neovim to install
+3. Run `./update-plugins.sh` or regenerate lockfile manually
+4. Commit both the plugin file and updated `lazy-lock.json`
+
+For critical plugins, consider adding an explicit commit pin:
+```lua
+{
+  'owner/plugin-name',
+  commit = 'abc1234...', -- Pin specific commit for stability
+}
+```
+
 ### FAQ
 
 * What should I do if I already have a pre-existing Neovim configuration?
